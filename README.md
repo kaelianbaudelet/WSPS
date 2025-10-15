@@ -2,7 +2,7 @@
 
 WSPS — Serveur API de collecte d’emploi du temps des écoles du groupe Compétences & Développement
 
-<img alt="banner" src="https://github.com/user-attachments/assets/d2e632c7-092e-40aa-8a74-c843da3e9954" />
+<img alt="Bannière" src="https://github.com/user-attachments/assets/fd93d1d1-0b0b-4cd9-8685-8a44b0718506" />
 
 Serveur d'approvisonnement d'emploi du temps et d'exposition d'emploi du temps non officiel, conçu pour les étudiants du réseaux d'écoles et de centre de formations [Compétences&Développement](https://www.competences-developpement.com/). \*\*WSPS¨ fournit un moyen simple et automatique de récupérer l’emploi du temps de votre établissement appartenant au groupe [C&D](https://www.competences-developpement.com/) et qui utilise le service [WigorServices](wigorservices.net).
 
@@ -58,9 +58,10 @@ Offrir une **API open-source** permettant aux étudiants et développeurs de **r
 | <img src="public/schools/emi.png" width="50">                        | EMI                        | Non   |
 | <img src="public/schools/esa.png" width="50">                        | ESA                        | Non   |
 
-## Fonctionnements
+## Fonctionnement
 
-<img alt="fonctionnement" src="https://github.com/user-attachments/assets/1995f259-c045-4c65-93fe-09844362aa01" />
+<img alt="Fonctionnement" src="https://github.com/user-attachments/assets/d6998738-2315-40ca-9381-47dfe07be211" />
+
 
 ## Pourquoi WSPS ?
 
@@ -76,7 +77,7 @@ En créant WSPS, l’objectif était de proposer une alternative non officielle,
 
 ## Comment déployer votre WSPS.
 
-<img alt="deploy" src="https://github.com/user-attachments/assets/f07407f7-72fc-4edf-9a3f-31330abb2d90" />
+<img alt="Comment déployer votre WSPS" src="https://github.com/user-attachments/assets/a2249e07-488a-4fe6-959a-892238154a59" />
 
 ### Prérequis
 
