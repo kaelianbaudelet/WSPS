@@ -129,4 +129,4 @@ Soumettre une pull request implique que vous acceptez de licencier votre contrib
 
 ## Licence
 
-Ce projet est sous licence **Mozilla Public License 2.0**. Vous êtes libre d’**utiliser**, de **modifier** et de **distribuer le code** **conformément aux termes de cette licence**, à condition que **toute modification du code source soit également mise à disposition sous la même licence**. Pour plus de détails, veuillez consulter le fichier `LICENSE.md` dans le dépôt.
+Ce projet est sous licence **Mozilla Public License 2.0**. Vous êtes libre d’**utiliser**, de **modifier** et de **distribuer le code** **conformément aux termes de cette licence**, à condition que **toute modification du code source soit également mise à disposition sous la même licence**. Pour plus de détails, veuillez consulter le fichier [LICENSE](LICENSE) dans le dépôt.
