@@ -4,7 +4,11 @@ WSPS — Serveur API de collecte d’emploi du temps des écoles du groupe Comp�
 
 <img alt="Bannière" src="https://github.com/user-attachments/assets/fd93d1d1-0b0b-4cd9-8685-8a44b0718506" />
 
+---
+
 Serveur d'approvisonnement d'emploi du temps et d'exposition d'emploi du temps non officiel, conçu pour les étudiants du réseaux d'écoles et de centre de formations [Compétences&Développement](https://www.competences-developpement.com/). \*\*WSPS¨ fournit un moyen simple et automatique de récupérer l’emploi du temps de votre établissement appartenant au groupe [C&D](https://www.competences-developpement.com/) et qui utilise le service [WigorServices](wigorservices.net).
+
+<img alt="Preview" src="https://github.com/user-attachments/assets/3d6c3272-7c35-4709-8c83-321961eddb4c" />
 
 > [!NOTE]
 > Ce projet n’est **pas affilié** aux écoles ou centres de formation du groupe [Compétences & Développement (C&D)](https://www.competences-developpement.com/) ni à [IGENSIA Education](https://www.igensia-education.fr/). Les fonctionnalités proposées **ne sont ni fournies ni soutenues** par ces groupes. Il s’agit d’une initiative indépendante, développée par un étudiant d’une des écoles du groupe C&D, visant à offrir une alternative pour exploiter et afficher les emplois du temps de vos établissements sur d’autres supports ou sous une forme différente du site officiel [WigorServices](wigorservices.net).
