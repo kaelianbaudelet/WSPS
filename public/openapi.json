@@ -1,0 +1,319 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "WSPS API",
+    "version": "1.0.0",
+    "description": "API for retrieving Wigor schedules"
+  },
+  "paths": {
+    "/api/schedules": {
+      "get": {
+        "summary": "Get all schedules",
+        "description": "Retrieves all schedules associated with the authenticated user, including versions and events (typically latest version's events).",
+        "operationId": "getAllSchedulesByUserId",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with schedules data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Schedule"
+                      }
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Failed to retrieve schedules",
+                      "nullable": true
+                    }
+                  },
+                  "required": ["success"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/schedules/{id}": {
+      "get": {
+        "summary": "Get schedule by ID",
+        "description": "Retrieves a specific schedule by its ID, including versions and events. If the `version` query parameter is provided, events are filtered to that specific version; otherwise, defaults to the latest version.",
+        "operationId": "getScheduleById",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier of the schedule"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Optional version number to filter events for"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with schedule data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Schedule"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/hello": {
+      "get": {
+        "summary": "Test user authentication",
+        "description": "Tests the authentication of the user with API key or bearer token and returns a personalized greeting message.",
+        "operationId": "hello",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful authentication response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HelloResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      },
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "Schedule": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the schedule"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the schedule"
+          },
+          "syncInterval": {
+            "$ref": "#/components/schemas/SyncInterval"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Schedule creation timestamp"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Schedule last update timestamp"
+          },
+          "userId": {
+            "type": "string",
+            "description": "ID of the user owning the schedule"
+          },
+          "schoolId": {
+            "type": "integer",
+            "description": "ID of the school associated with the schedule"
+          },
+          "version": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Version"
+            },
+            "description": "Array of schedule versions"
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Event"
+            },
+            "description": "Events associated with the schedule (filtered by version query if provided, otherwise latest)"
+          }
+        },
+        "required": ["id", "name", "syncInterval", "createdAt", "updatedAt", "userId", "schoolId", "version"]
+      },
+      "Version": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the version"
+          },
+          "versionNumber": {
+            "type": "integer",
+            "description": "Version number"
+          },
+          "notes": {
+            "type": "string",
+            "description": "Notes for the version (e.g., 'Auto sync')"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Version creation timestamp"
+          }
+        },
+        "required": ["id", "versionNumber", "notes", "createdAt"]
+      },
+      "Event": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the event"
+          },
+          "hash": {
+            "type": "string",
+            "description": "Unique hash for the event"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the event"
+          },
+          "instructor": {
+            "type": "string",
+            "description": "Instructor of the event",
+            "nullable": true
+          },
+          "program": {
+            "type": "string",
+            "description": "Program of the event",
+            "nullable": true
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Start time of the event"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "End time of the event"
+          },
+          "duration": {
+            "type": "integer",
+            "description": "Duration of the event in minutes",
+            "nullable": true
+          },
+          "weekDay": {
+            "type": "string",
+            "description": "Day of the week for the event",
+            "nullable": true
+          },
+          "classroom": {
+            "type": "string",
+            "description": "Classroom for the event",
+            "nullable": true
+          },
+          "campus": {
+            "type": "string",
+            "description": "Campus for the event",
+            "nullable": true
+          },
+          "deliveryMode": {
+            "$ref": "#/components/schemas/DeliveryMode"
+          },
+          "color": {
+            "type": "string",
+            "description": "Color associated with the event",
+            "nullable": true
+          },
+          "classGroup": {
+            "type": "string",
+            "description": "Class group for the event",
+            "nullable": true
+          }
+        },
+        "required": ["id", "hash", "title", "startTime", "endTime", "deliveryMode"]
+      },
+      "SyncInterval": {
+        "type": "string",
+        "enum": [
+          "min15",
+          "min30",
+          "hour1",
+          "hour3",
+          "hour6",
+          "hour12",
+          "daily",
+          "weekly",
+          "biweekly",
+          "monthly"
+        ],
+        "description": "Interval for schedule synchronization"
+      },
+      "DeliveryMode": {
+        "type": "string",
+        "enum": ["in_person", "remote", "hybrid"],
+        "description": "Mode of delivery for the event"
+      },
+      "HelloResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Personalized authentication success message",
+            "example": "Hello Kaelian BAUDELET, you’re successfully authenticated."
+          }
+        },
+        "required": ["message"]
+      }
+    }
+  }
+}

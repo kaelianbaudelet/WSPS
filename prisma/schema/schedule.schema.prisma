@@ -1,0 +1,87 @@
+model Schedule {
+    id   String @id @default(cuid())
+    name String
+
+    payload String
+
+    syncInterval SyncInterval @default(hour6)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    userId String
+    user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    schoolId Int
+    school   School @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+
+    versions ScheduleVersion[] @relation("ScheduleVersions")
+}
+
+model ScheduleVersion {
+    id            String   @id @default(cuid())
+    versionNumber Int      @default(1)
+    scheduleId    String
+    schedule      Schedule @relation("ScheduleVersions", fields: [scheduleId], references: [id], onDelete: Cascade)
+    createdAt     DateTime @default(now())
+    notes         String?
+
+    eventVersions EventVersion[]
+}
+
+model Event {
+    id String @id @default(cuid())
+
+    hash String @unique
+
+    title        String
+    instructor   String?
+    program      String?
+    startTime    DateTime
+    endTime      DateTime
+    duration     Int?
+    weekDay      String?
+    classroom    String?
+    campus       String?
+    deliveryMode DeliveryMode @default(in_person)
+    color        String?
+    classGroup   String?
+
+    eventVersions EventVersion[]
+}
+
+model EventVersion {
+    id        String          @id @default(cuid())
+    versionId String
+    eventId   String
+    version   ScheduleVersion @relation(fields: [versionId], references: [id], onDelete: Cascade)
+    event     Event           @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+    changeType EventChangeType @default(Unchanged)
+}
+
+enum EventChangeType {
+    Added
+    Removed
+    Modified
+    Unchanged
+}
+
+enum DeliveryMode {
+    in_person
+    remote
+    hybrid
+}
+
+enum SyncInterval {
+    min15
+    min30
+    hour1
+    hour3
+    hour6
+    hour12
+    daily
+    weekly
+    biweekly
+    monthly
+}

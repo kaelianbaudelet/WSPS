@@ -1,0 +1,22 @@
+model SchoolGroup {
+    id   Int    @id @default(autoincrement())
+    name String @unique
+
+    schools School[]
+
+    @@map("school_groups")
+}
+
+model School {
+    id             Int    @id @default(autoincrement())
+    logo           String
+    name           String
+    loginServer    String
+    scheduleServer String
+
+    groupId  Int
+    group    SchoolGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+    Schedule Schedule[]
+
+    @@map("schools")
+}
