@@ -79,7 +79,7 @@ L’idée derrière WSPS est simple : fournir un serveur back-end capable de scr
 
 En créant WSPS, l’objectif était de proposer une alternative non officielle, pratique et modulable, qui simplifie l’accès et l’exploitation des emplois du temps du groupe d'écoles C&D et IGENSIA Education.
 
-## Comment déployer votre WSPS.
+## Déployer votre WSPS 
 
 <img alt="Comment déployer votre WSPS" src="https://github.com/user-attachments/assets/a2249e07-488a-4fe6-959a-892238154a59" />
 
@@ -111,7 +111,7 @@ Une fois le déploiement terminé, ouvrez votre navigateur et rendez-vous sur ht
 
 ## Comment contribuer
 
-Pour obtenir tous les détails sur la contribution, y compris les directives pour soumettre des issues, pull requests et tests, consultez le fichier `CONTRIBUTING.md`.
+Pour obtenir tous les détails sur la contribution, y compris les directives pour soumettre des issues, pull requests et tests, consultez le fichier [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ### Soumission d’issues
 
