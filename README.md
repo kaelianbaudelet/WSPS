@@ -20,7 +20,7 @@ Serveur d'approvisonnement d'emploi du temps et d'exposition d'emploi du temps n
 
 ## Objetcif
 
-Offrir une **API open-source** permettant aux étudiants et développeurs de **récupérer automatiquement les emplois du temps des écoles du groupe IGENSIA Education et Compétences & Développement, afin de les **intégrer facilement dans leurs propres applications ou services, sans proposer d’interface graphique ni de front-end officiel.
+Offrir une **API open-source** permettant aux étudiants et développeurs de **récupérer automatiquement** les emplois du temps **des écoles du groupe IGENSIA Education et Compétences & Développement**, afin de les **intégrer facilement dans leurs propres applications ou services**, sans proposer d’interface graphique ni de front-end officiel.
 
 **Fonctionnalités principales :**
 
@@ -30,6 +30,9 @@ Offrir une **API open-source** permettant aux étudiants et développeurs de **r
 - Mise à disposition d’une API exploitable pour intégrer les données dans vos propres projets.
 
 ## Écoles du groupe C&D et IGENSIA Education prises en charge
+
+> [!NOTE]
+> Étudiants des écoles du groupe C&D ou d’IGENSIA : tester WSPS dans votre établissement pour contribuer à la démocratisation du support et à la validation des tests. Votre aide est la bienvenue : si votre école n’a pas encore été testée ou si WSPS ne fonctionne pas correctement, n'hésiter pas à soumettre une Issue pour partager vos retours sur le support de WSPS vis à vis de votre établissement scolaire.
 
 | Logo                                                                 | Établissement              | Testé |
 | -------------------------------------------------------------------- | -------------------------- | ----- |
