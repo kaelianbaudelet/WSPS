@@ -1,6 +1,6 @@
 
 const devDomain = "http://localhost:3000";
-const prodDomain = "https://labonneblanquette-arras.kaelian.dev";
+const prodDomain = "https://wsps.kaelian.dev";
 
 export const siteConfig = {
     demo: {
