@@ -18,7 +18,7 @@ Serveur d'approvisonnement d'emploi du temps et d'exposition d'emploi du temps n
 > [!IMPORTANT]
 > Ce projet est actuellement en développement actif. Certaines fonctionnalités peuvent être en cours d’implémentation et des bugs peuvent survenir. N’hésitez pas à partager vos retours afin d’aider à améliorer WSPS.
 
-## Objetcif
+## Objectif
 
 Offrir une **API open-source** permettant aux étudiants et développeurs de **récupérer automatiquement** les emplois du temps **des écoles du groupe IGENSIA Education et Compétences & Développement**, afin de les **intégrer facilement dans leurs propres applications ou services**, sans proposer d’interface graphique ni de front-end officiel.
 
